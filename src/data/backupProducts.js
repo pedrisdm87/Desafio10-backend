@@ -1,134 +1,134 @@
 [
-    {
-      "id": 1,
-      "title": "Oppenheimer",
-      "description": "Biografia",
-      "price": 2500,
-      "thumbnail": ["Movie1.jpg"],
-      "code": 1001,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 2,
-      "title": "Barbie",
-      "description": "Infantil",
-      "price": 2500,
-      "thumbnail": ["Movie2.jpg"],
-      "code": 1002,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 3,
-      "title": "El Padrino",
-      "description": "Drama",
-      "price": 2500,
-      "thumbnail": ["Movie3.jpg"],
-      "code": 1003,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 4,
-      "title": "Titanic",
-      "description": "Romance",
-      "price": 2500,
-      "thumbnail": ["Movie4.jpg"],
-      "code": 1004,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 5,
-      "title": "La Guerra de las Galaxias",
-      "description": "Ciencia Ficción",
-      "price": 2500,
-      "thumbnail": ["Movie5.jpg"],
-      "code": 1005,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 6,
-      "title": "Jurassic Park",
-      "description": "Aventura",
-      "price": 2500,
-      "thumbnail": ["Movie6.jpg"],
-      "code": 1006,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 7,
-      "title": "El Señor de los Anillos",
-      "description": "Fantasía",
-      "price": 2500,
-      "thumbnail": ["Movie7.jpg"],
-      "code": 1007,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 8,
-      "title": "Harry Potter y la Piedra Filosofal",
-      "description": "Fantasía",
-      "price": 2500,
-      "thumbnail": ["Movie8.jpg"],
-      "code": 1008,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 9,
-      "title": "Avatar",
-      "description": "Ciencia Ficción",
-      "price": 2500,
-      "thumbnail": ["Movie9.jpg"],
-      "code": 1009,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 10,
-      "title": "El Rey León",
-      "description": "Infantil",
-      "price": 2500,
-      "thumbnail": ["Movie10.jpg"],
-      "code": 1010,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 11,
-      "title": "Forrest Gump",
-      "description": "Drama",
-      "price": 2500,
-      "thumbnail": ["Movie11.jpg"],
-      "code": 1011,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    },
-    {
-      "id": 12,
-      "title": "Misión Imposible",
-      "description": "Acción",
-      "price": 2500,
-      "thumbnail": ["Movie12.jpg"],
-      "code": 1012,
-      "stock": 200,
-      "status": true,
-      "category": "Movies"
-    }
-  ]
+  {
+    "id": 1,
+    "title": "Oppenheimer",
+    "description": "Biografia",
+    "price": 2500,
+    "thumbnail": ["https://www.infobae.com/new-resizer/f3NsyqLZU4EFZl9fglNeNQBAwyw=/768x1152/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/H2DVBWCFAZGYDFWWN4TEASWRZI.jpg"],
+    "code": 1001,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 2,
+    "title": "Barbie",
+    "description": "Infantil",
+    "price": 2500,
+    "thumbnail": ["https://es.web.img2.acsta.net/pictures/23/07/20/11/29/5479684.jpg"],
+    "code": 1002,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 3,
+    "title": "El Padrino",
+    "description": "Drama",
+    "price": 2500,
+    "thumbnail": ["https://www.infobae.com/new-resizer/hiIfl67IpVcJFdCYJpJOoaGgStE=/arc-anglerfish-arc2-prod-infobae/public/Z7TNUJTHKJESBNNHCEGLCMKLWA.jfif"],
+    "code": 1003,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 4,
+    "title": "Titanic",
+    "description": "Romance",
+    "price": 2500,
+    "thumbnail": ["https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2022/01/titanic-2577593.jpg?tf=1200x"],
+    "code": 1004,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 5,
+    "title": "La Guerra de las Galaxias",
+    "description": "Ciencia Ficción",
+    "price": 2500,
+    "thumbnail": ["https://hips.hearstapps.com/hmg-prod/images/una-nueva-esperanza-1575449085.jpg"],
+    "code": 1005,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 6,
+    "title": "Jurassic Park",
+    "description": "Aventura",
+    "price": 2500,
+    "thumbnail": ["https://mir-s3-cdn-cf.behance.net/project_modules/hd/f00bf346385235.58520f9022451.jpg"],
+    "code": 1006,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 7,
+    "title": "El Señor de los Anillos",
+    "description": "Fantasía",
+    "price": 2500,
+    "thumbnail": ["https://es.web.img3.acsta.net/medias/nmedia/18/89/67/45/20061512.jpg"],
+    "code": 1007,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 8,
+    "title": "Harry Potter y la Piedra Filosofal",
+    "description": "Fantasía",
+    "price": 2500,
+    "thumbnail": ["https://es.web.img2.acsta.net/pictures/14/04/30/11/55/592219.jpg"],
+    "code": 1008,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 9,
+    "title": "Avatar",
+    "description": "Ciencia Ficción",
+    "price": 2500,
+    "thumbnail": ["https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg"],
+    "code": 1009,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 10,
+    "title": "El Rey León",
+    "description": "Infantil",
+    "price": 2500,
+    "thumbnail": ["https://lumiere-a.akamaihd.net/v1/images/image_8b5ca578.jpeg?region=0,0,540,810"],
+    "code": 1010,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 11,
+    "title": "Forrest Gump",
+    "description": "Drama",
+    "price": 2500,
+    "thumbnail": ["https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"],
+    "code": 1011,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  },
+  {
+    "id": 12,
+    "title": "Misión Imposible",
+    "description": "Acción",
+    "price": 2500,
+    "thumbnail": ["https://pics.filmaffinity.com/Misiaon_imposible_Sentencia_mortal_Parte_1-902615661-large.jpg"],
+    "code": 1012,
+    "stock": 200,
+    "status": true,
+    "category": "Movies"
+  }
+]

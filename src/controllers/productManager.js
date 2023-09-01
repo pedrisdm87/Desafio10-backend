@@ -76,7 +76,7 @@ export default class ProductManager {
             try {
                 const products = await this.getProducts()
                 const newProductId = await this.#generateId();
-                products.push({id: newProductId, title, description, price, thumbnail: thumbnail || [], code, stock, category: "Libros",  status: true,})
+                products.push({id: newProductId, title, description, price, thumbnail: thumbnail || [], code, stock, category: "Movies",  status: true,})
                 await fs.promises.writeFile(this.#path, JSON.stringify(products, null, '\t'))
                 return { error: null }; // Devuelvo un objeto con la propiedad error como null
             } catch (error) {
@@ -89,8 +89,7 @@ export default class ProductManager {
         }
     }
 
-    // ----------------------------------------------- FUNCIONES NUEVAS DE LA CLASE 04-----------------------------------------------------------------
-
+   
     async updateProduct(idProduct, productNow) {
         await this.#theFileExists();
         try {

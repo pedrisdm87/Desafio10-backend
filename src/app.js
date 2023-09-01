@@ -28,7 +28,7 @@ app.set("view engine", "handlebars");
 // endpoints con router
 
 // Ruta principal
-app.get("/", (req, res) => res.render("index", { name: "JOSIAS" }));
+app.get("/", (req, res) => res.render("index", { name: "Pedro" }));
 
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartRouter);

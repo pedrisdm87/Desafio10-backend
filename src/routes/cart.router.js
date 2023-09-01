@@ -10,10 +10,10 @@ router.post("/", async (req, res) => {
     try {
         const addCart = await cartManager.addCart();
         console.log(addCart)
-        res.status(200).json({ message: "Carrito nuevo agregado", addCart });
+        res.status(200).json({ message: "New cart added", addCart });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({ error: "error en el servidor" });
+        return res.status(500).json({ error: "Server error" });
     }
 });
 
@@ -26,24 +26,24 @@ router.post("/:cid/products/:pid", async (req, res) => {
 
         // Validaciones de ID de carrito y producto
         if (cartId <= 0 || isNaN(cartId)) {
-            return res.status(400).json({ error: "ID de carrito no válido" });
+            return res.status(400).json({ error: "Invalid cart ID" });
         }
 
         if (productId <= 0 || isNaN(productId)){
-            return res.status(400).json({error: "Producto invalido"})
+            return res.status(400).json({error: "Invalid Product"})
         }
 
         // Agrego el producto al carrito
         const cart = await cartManager.addProductsToCart(cartId, productId)
 
         if (!cart) {
-            return res.status(404).json({ error: `El carrito con el id ${cartId} no existe` });
+            return res.status(404).json({ error: `The cart with the id ${cartId} does not exist` });
         }
-        res.status(200).json({message: "Producto agregado con exito", dataCart: cart[cartId - 1]});
+        res.status(200).json({message: "Product added successfully", dataCart: cart[cartId - 1]});
 
     } catch (error) {
         console.log(error);
-        return res.status(500).json({ error: "error en el servidor" });
+        return res.status(500).json({ error: "Server error" });
     }
 });
 
@@ -60,12 +60,12 @@ router.get("/:cid", async (req, res) => {
         if (cart) {
             res.status(200).json(cart)
         } else {
-            res.status(404).json({error: `No hay carritos con el ID ${cartId}`});
+            res.status(404).json({error: `There are no carts with the ID ${cartId}`});
         }
         
     } catch (error){
         console.log(error)
-        return res.status(500).json({ error: "error en el servidor"})
+        return res.status(500).json({ error: "Server error" });
     }
 })
 

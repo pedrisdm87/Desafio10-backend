@@ -1,72 +1,105 @@
 import { Router } from "express";
-import CartManager from "../controllers/cartManager.js";
+import ProductManager from "../controllers/productManager.js";
 
 const router = Router();
 
-const cartManager = new CartManager();
+const productManager = new ProductManager();
 
-// POST para crear carritos nuevos
+
+// http://localhost:8080/products/ con limit (http://localhost:8080/products?limit=5)
+router.get("/", async (req, res) => {
+    const movies = await productManager.getProducts();
+    const limit = req.query.limit;
+    if (!limit) {
+        res.status(200).json(movies);
+    } else {
+        let prodLimit = movies.slice(0, limit);
+        res.status(200).json(prodLimit);
+    }
+});
+
+// //endpoint para leer un solo producto a partir de su ID
+router.get("/:pid", async (req, res) => {
+    const movies = await productManager.getProducts();
+    const id = req.params.pid;
+    const productId = movies.find((item) => item.id == id);
+    if (!productId) {
+        return res.status(404).json({ Error: "The movie does not exist" });
+    } else {
+        res.status(200).json(productId);
+    }
+});
+
+// //endpoint para crear a un nuevo producto
 router.post("/", async (req, res) => {
+    const { title, description, price, thumbnail, code, stock } = req.body;
     try {
-        const addCart = await cartManager.addCart();
-        console.log(addCart)
-        res.status(200).json({ message: "Carrito nuevo agregado", addCart });
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({ error: "error en el servidor" });
-    }
-});
-
-// POST para cargar productos en el carrito
-router.post("/:cid/products/:pid", async (req, res) => {
-    try {
-        // Obtengo los ID
-        const cartId = parseInt(req.params.cid)
-        const productId = parseInt(req.params.pid)
-
-        // Validaciones de ID de carrito y producto
-        if (cartId <= 0 || isNaN(cartId)) {
-            return res.status(400).json({ error: "ID de carrito no válido" });
-        }
-
-        if (productId <= 0 || isNaN(productId)){
-            return res.status(400).json({error: "Producto invalido"})
-        }
-
-        // Agrego el producto al carrito
-        const cart = await cartManager.addProductsToCart(cartId, productId)
-
-        if (!cart) {
-            return res.status(404).json({ error: `El carrito con el id ${cartId} no existe` });
-        }
-        res.status(200).json({message: "Producto agregado con exito", dataCart: cart[cartId - 1]});
-
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({ error: "error en el servidor" });
-    }
-});
-
-
-
-
-// GET para traer un carrito por su ID
-router.get("/:cid", async (req, res) => {
-    
-    try{
-        const cartId = req.params.cid
-        const cart = await cartManager.getCartById(cartId)
-
-        if (cart) {
-            res.status(200).json(cart)
+        const result = await productManager.addProduct(
+            title,
+            description,
+            price,
+            thumbnail,
+            code,
+            stock
+        );
+        if (result.error) {
+            // Se ejecuta si hay un error de validación
+            res.status(400).json({ error: result.error });
         } else {
-            res.status(404).json({error: `No hay carritos con el ID ${cartId}`});
+            // Se ejecuta si el producto se agrega correctamente
+            const products = await productManager.getProducts(); // Obtengo los productos actualizados
+            req.app.get("socketio").emit("updatedProducts", products);
+
+            res.status(201).json({ message: "Product added successfully" });
         }
-        
-    } catch (error){
-        console.log(error)
-        return res.status(500).json({ error: "error en el servidor"})
+    } catch (error) {
+        console.error("Error adding product:", error);
+        res.status(500).json({ error: "Error adding product" });
     }
-})
+});
+
+//endpoint para actualizar los datos de un producto
+router.put("/:id", async (req, res) => {
+    const id = req.params.id;
+    const newData = req.body;
+    try {
+        const movies = await productManager.getProducts();
+        const productId = movies.find((item) => item.id == id);
+        if (!productId) {
+            return res.status(404).json({ Error: "The movie does not exist" });
+        }
+
+        await productManager.updateProduct(id, newData);
+
+        const products = await productManager.getProducts(); // Obtengo los productos actualizados
+        req.app.get("socketio").emit("updatedProducts", products);
+
+        res.status(200).json({ message: "Product successfully updated" });
+    } catch (error) {
+        console.error("Error al eliminar el producto:", error);
+        res.status(500).json({ error: "Error deleting the product" });
+    }
+});
+
+//endpoint para eliminar un producto
+router.delete("/:pid", async (req, res) => {
+    const id = req.params.pid; //obtengo el di del producto a eliminar
+    try {
+        const movies = await productManager.getProducts();
+        const productId = movies.find((item) => item.id == id);
+        if (!productId) {
+            return res.status(404).json({ Error: "The movie does not exist" });
+        }
+
+        await productManager.deleteProductById(id);
+
+        const products = await productManager.getProducts(); // Obtengo los productos actualizados
+        req.app.get("socketio").emit("updatedProducts", products);
+        res.status(200).json({ message: "Product deleted successfully" });
+    } catch (error) {
+        console.error("Error deleting the product:", error);
+        res.status(500).json({ error: "Error deleting the product" });
+    }
+});
 
 export default router;
